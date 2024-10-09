@@ -1,10 +1,12 @@
-import { Document } from "mongoose";
+import { ObjectId } from "mongoose";
+import { ValidRoles } from "./valid-roles.interface";
 
-export interface IUser extends Document {
+export interface IUser {
+    _id?: string | ObjectId;
     name: string;
     email: string;
     password: string;
-    role: string;
+    role: ValidRoles;
 };
 
 export interface IUserService {

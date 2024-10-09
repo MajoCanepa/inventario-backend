@@ -2,7 +2,7 @@ import { IUser } from "../../users/interface";
 
 export interface IAuthService {
     login( user:LoginUser): Promise<LoginUserResponse>;
-    logout(): void;
+    logout(): void /// 
     register(user:IUser): Promise<LoginUserResponse>;
     checkToken(user:IUser): Promise<LoginUserResponse>;
 };

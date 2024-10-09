@@ -1,5 +1,6 @@
 import { Schema, model } from "mongoose";
 import { ValidRoles } from "../interface";
+import { IUser } from "../interface/user.interface";
 
 const UserSchema = new Schema({
     name: {
@@ -17,11 +18,11 @@ const UserSchema = new Schema({
     },
     role: {
         type: String,
+        enum: Object.values(ValidRoles),
         default: ValidRoles.USER,
     },
 },{
-    timestamps: true,
-    versionKey: false
+    timestamps: true
 });
 
-export const User = model('User', UserSchema);
+export const User = model<IUser>('User', UserSchema);

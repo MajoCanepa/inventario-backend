@@ -5,7 +5,10 @@ interface IDB {
     dbName: string;
 }
 
+//! APLICANDO EL PATRON SINGLETON (lo que esta comentado)
 export class DB {
+    // aca iria: 
+    // private static instance: DB;
     private uri: string;
     private nameDB: string;
 
@@ -13,6 +16,14 @@ export class DB {
         this.uri = mongoUrl;
         this.nameDB = dbName;
     };
+
+    // aca iria:
+    // public static getInstance(config: IDB): DB {
+    //     if (!DB.instance) {
+    //         DB.instance = new DB(config);
+    //     }
+    //     return DB.instance;
+    // }
 
      async connect() {
         try {

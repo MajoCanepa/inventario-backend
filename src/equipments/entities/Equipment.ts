@@ -18,8 +18,7 @@ const EquipmentSchema = new Schema({
         required: true        
     },
 },{
-    timestamps: true,
-    versionKey: false
+    timestamps: true
 });
 
 export const Equipment = model('Equipment', EquipmentSchema);

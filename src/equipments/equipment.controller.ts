@@ -19,6 +19,9 @@ export class EquipmentController {
     findAll = async (req: Request, res: Response) => {
         try {
             const equipments = await this.equipmentService.findAll();
+            if(!equipments) {
+                res.status(404).json({ message: 'No hay equipos' });
+            }
             res.status(200).json(equipments);
         } catch (error) {
             console.log('Error', error);
@@ -29,6 +32,9 @@ export class EquipmentController {
     findOne = async (req: Request, res: Response) => {
         try {
             const equipment = await this.equipmentService.findOne(req.params.id);
+            if(!equipment) {
+                res.status(404).json({ message: 'Equipo no encontrado' });
+            }
             res.status(200).json(equipment);
         } catch (error) {
             console.log('Error', error);
